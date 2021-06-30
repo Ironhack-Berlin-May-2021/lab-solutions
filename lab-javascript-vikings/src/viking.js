@@ -61,45 +61,45 @@ class War {
   }
 
   vikingAttack() {
-    // return this.attack(this.vikingArmy, this.saxonArmy);
-    const saxonIndex = Math.floor(Math.random() * this.saxonArmy.length);
-    const vikingIndex = Math.floor(Math.random() * this.vikingArmy.length);
-    const saxon = this.saxonArmy[saxonIndex];
-    const viking = this.vikingArmy[vikingIndex];
-    const message = saxon.receiveDamage(viking.strength);
-    if (saxon.health < 1) {
-      this.saxonArmy.splice(saxonIndex, 1);
-    }
-    return message;
+    return this.attack(this.vikingArmy, this.saxonArmy);
+    // const saxonIndex = Math.floor(Math.random() * this.saxonArmy.length);
+    // const vikingIndex = Math.floor(Math.random() * this.vikingArmy.length);
+    // const saxon = this.saxonArmy[saxonIndex];
+    // const viking = this.vikingArmy[vikingIndex];
+    // const message = saxon.receiveDamage(viking.strength);
+    // if (saxon.health < 1) {
+    //   this.saxonArmy.splice(saxonIndex, 1);
+    // }
+    // return message;
   }
 
   saxonAttack() {
-    // return this.attack(this.saxonArmy, this.vikingArmy);
-    const saxonIndex = Math.floor(Math.random() * this.saxonArmy.length);
-    const vikingIndex = Math.floor(Math.random() * this.vikingArmy.length);
-    const saxon = this.saxonArmy[saxonIndex];
-    const viking = this.vikingArmy[vikingIndex];
-    const message = viking.receiveDamage(saxon.strength);
-    if (viking.health < 1) {
-      this.vikingArmy.splice(vikingIndex, 1);
-    }
-    return message;
+    return this.attack(this.saxonArmy, this.vikingArmy);
+    // const saxonIndex = Math.floor(Math.random() * this.saxonArmy.length);
+    // const vikingIndex = Math.floor(Math.random() * this.vikingArmy.length);
+    // const saxon = this.saxonArmy[saxonIndex];
+    // const viking = this.vikingArmy[vikingIndex];
+    // const message = viking.receiveDamage(saxon.strength);
+    // if (viking.health < 1) {
+    //   this.vikingArmy.splice(vikingIndex, 1);
+    // }
+    // return message;
   }
 
   // generic attack: Todo
-  // attack(attackArmy, defendArmy) {
-  //   const attackerIndex = Math.floor(Math.random() * attackArmy.length);
-  //   const defenderIndex = Math.floor(Math.random() * defendArmy.length);
+  attack(attackArmy, defendArmy) {
+    const attackerIndex = Math.floor(Math.random() * attackArmy.length);
+    const defenderIndex = Math.floor(Math.random() * defendArmy.length);
 
-  //   const attackerSoldier = attackArmy[attackerIndex];
-  //   const defenderSoldier = defendArmy[defenderIndex];
+    const attackerSoldier = attackArmy[attackerIndex];
+    const defenderSoldier = defendArmy[defenderIndex];
 
-  //   const message = defenderSoldier.receiveDamage(attackerSoldier.strength);
-  //   if (defenderSoldier.health < 1) {
-  //     defendArmy.splice(defenderIndex, 1);
-  //   }
-  //   return message;
-  // }
+    const message = defenderSoldier.receiveDamage(attackerSoldier.strength);
+    if (defenderSoldier.health < 1) {
+      defendArmy.splice(defenderIndex, 1);
+    }
+    return message;
+  }
 
   showStatus() {
     // both conditions are the same
@@ -114,3 +114,8 @@ class War {
 if (typeof module !== 'undefined') {
   module.exports = { Soldier, Viking, Saxon, War };
 }
+
+const soldier1 = new Soldier(50, 10);
+const viking1 = new Viking('raegar', 50, 100);
+console.log(soldier1);
+console.log(viking1);

@@ -2,7 +2,7 @@
 
 function updateSubtotal(product) {
   console.log('Calculating subtotal, yey!');
-
+  console.log(product);
   const price = product.querySelector('.price span').innerText;
   const quantity = product.querySelector('.quantity input').value;
 
@@ -22,6 +22,7 @@ function calculateAll() {
   // ITERATION 2
   //... your code goes here
   let total = 0;
+  console.log(document.querySelectorAll('.product'));
   document.querySelectorAll('.product').forEach(function (product) {
     console.log(product);
     total += updateSubtotal(product);
@@ -36,6 +37,7 @@ function calculateAll() {
 
 function removeProduct(event) {
   const target = event.currentTarget;
+  console.log(target);
   console.log('The target to remove is:', target.parentNode.parentNode);
   const product = target.parentNode.parentNode;
   product.remove();
@@ -46,9 +48,10 @@ function removeProduct(event) {
 // ITERATION 5
 
 function createProduct() {
-  // const product = document.querySelector('.product');
-  // const newProduct = product.cloneNode(true);
-  const newProduct = document.createElement('tr');
+  const product = document.querySelector('.product');
+  const newProduct = product.cloneNode(true);
+  // const newProduct = document.createElement('tr');
+  console.log(newProduct);
   newProduct.className = 'product';
   newProduct.innerHTML = `
       <td class="name">
