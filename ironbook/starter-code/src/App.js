@@ -30,7 +30,7 @@ class App extends React.Component {
 
     const filteredUsers = users.filter(user => {
       return this.state[user.role]
-        && (user.firstName + user.lastName.toLowerCase()).includes(this.state.search.toLowerCase())
+        && (`${user.firstName}${user.lastName}`.toLowerCase()).includes(this.state.search.toLowerCase())
         && (user.campus === this.state.campus || !this.state.campus);
     });
 
